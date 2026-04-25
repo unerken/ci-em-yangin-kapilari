@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900">
+
+    <!-- Admin Navbar -->
+    <nav class="bg-gray-900 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-wider">CI & EM Admin</h1>
+        <a href="/" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Siteyi Görüntüle ↗</a>
+    </nav>
+
+    <div class="max-w-6xl mx-auto p-6 mt-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Ürün Listesi</h2>
+            <a href="/admin/urun-ekle" class="bg-[#d32f2f] text-white px-5 py-2.5 rounded-lg shadow hover:bg-red-700 transition-colors font-medium">+ Yeni Ürün Ekle</a>
+        </div>
+
+        <!-- Ürün Tablosu -->
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 text-sm uppercase tracking-wider">
+                        <th class="p-4 font-semibold">Görsel</th>
+                        <th class="p-4 font-semibold">Ürün Adı</th>
+                        <th class="p-4 font-semibold">Kategori</th>
+                        <th class="p-4 font-semibold">URL (Slug)</th>
+                        <th class="p-4 font-semibold text-center">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <% if(products.length === 0) { %>
+                        <tr><td colspan="5" class="p-8 text-center text-gray-500">Henüz hiç ürün eklenmemiş.</td></tr>
+                    <% } %>
+                    <% products.forEach(product => { %>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-4"><img src="<%= product.image %>" class="w-16 h-12 object-cover rounded border"></td>
+                            <td class="p-4 font-medium text-gray-800"><%= product.name %></td>
+                            <td class="p-4 text-gray-600"><%= product.category === 'fire' ? 'Yangın Kapısı' : (product.category === 'steel' ? 'Çelik Kapı' : 'Ahşap Kapı') %></td>
+                            <td class="p-4 text-gray-500 text-sm">/<%= product.slug %></td>
+                            <td class="p-4 text-center">
+                                <span class="text-gray-400 text-sm italic">Düzenle/Sil (Yapım Aşamasında)</span>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

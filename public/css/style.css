@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Google Fonts (Montserrat: Modern metinler, Playfair Display: Lüks Logo)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+/* ==========================================================================
+   Tema Değişkenleri (Gece Siyahı, Kömür Grisi, Yakut Kırmızı)
+   ========================================================================== */
+:root {
+  --night-black: #0f0f0f;
+  --charcoal-gray: #1a1a1a;
+  --accent-red: #d32f2f;
+  --accent-red-glow: rgba(211, 47, 47, 0.5);
+  --text-light: #f5f5f5;
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+  background-color: var(--night-black);
+  color: var(--text-light);
+  cursor: none; /* Özel imleç için varsayılan imleci gizle */
+}
+
+/* Genel akıcı geçişler için */
+a, button, .card-charcoal, .icon-box {
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   Custom Cursor (Özel İmleç) Stilleri
+   ========================================================================== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hover {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-red-glow);
+  border-color: transparent;
+}
+
+/* Dokunmatik ekranlarda (Mobil vb.) özel imleci gizle, varsayılana dön */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  .custom-cursor, .custom-cursor-dot { display: none; }
+}
+
+/* ==========================================================================
+   Header Base - Glassmorphism Efekti
+   ========================================================================== */
+.glass-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Koyu, yarı şeffaf arkaplan */
+  background: rgba(15, 15, 15, 0.6); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  transition: var(--transition-smooth);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Logo Stilleri
+   ========================================================================== */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  text-decoration: none;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1001;
+}
+
+.logo-light {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.logo-red {
+  color: #d32f2f; /* Şık ve Lüks Kırmızı */
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Navigasyon Linkleri (Orta)
+   ========================================================================== */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  position: relative;
+  padding-bottom: 6px;
+  transition: var(--transition-smooth);
+}
+
+/* Link Altı Çizgisi - İnce Altın Degradesi Hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d32f2f, transparent);
+  transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Lüks 'Teklif Al' Butonu (Sağ)
+   ========================================================================== */
+.btn-red {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  /* Lüks Kırmızı Degradesi */
+  background: linear-gradient(135deg, #a71d2a 0%, #d32f2f 40%, #ef5350 60%, #a71d2a 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 15px var(--accent-red-glow); /* Yumuşak Parlama (Glow) */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.btn-red:hover {
+  /* Animasyonlu Degrade Geçişi ve Yumuşak Yükselme */
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px var(--accent-red-glow), 0 0 10px rgba(211, 47, 47, 0.8); /* Daha güçlü parlama */
+  color: #fff;
+}
+
+/* ==========================================================================
+   Özel Kart ve İkon Stilleri (Kömür Grisi & Glow Efektleri)
+   ========================================================================== */
+.card-charcoal {
+  background-color: var(--charcoal-gray);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+.card-charcoal:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  border-color: rgba(211, 47, 47, 0.2);
+}
+
+.icon-box {
+  background-color: var(--night-black);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-charcoal:hover .icon-box {
+  box-shadow: 0 0 20px var(--accent-red-glow);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Premium Image Split Preloader (Görsel Bölünme Animasyonu)
+   ========================================================================== */
+.split-door {
+  transition: transform 1.5s cubic-bezier(0.8, 0, 0.2, 1); /* Çok akıcı ve lüks bir ivme */
+}
+.door-open .split-left {
+  transform: translateX(-100%);
+}
+.door-open .split-right {
+  transform: translateX(100%);
+}
+.preloader-logo {
+  transition: all 0.8s ease-in-out;
+}
+.door-open .preloader-logo {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* ==========================================================================
+   Mobil Hamburger Menü & Responsive Tasarım
+   ========================================================================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger Çarpı (X) Animasyonu */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 991px) {
+  .nav-container { padding: 1.2rem 1.5rem; }
+  .hamburger { display: flex; }
+  .nav-menu {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 2.5rem; opacity: 0; visibility: hidden;
+    transform: translateY(-20px); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 999;
+  }
+  .nav-menu.active {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  .nav-links { flex-direction: column; text-align: center; gap: 2rem; }
+  .nav-links a { font-size: 1.5rem; }
+}

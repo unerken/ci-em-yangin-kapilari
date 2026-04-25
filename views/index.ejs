@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- SVG Kodlu Dinamik Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f0f0f' stroke='%23d32f2f' stroke-width='4'/%3E%3Ctext x='50' y='54' font-family='Georgia, serif' font-size='26' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%23ffffff'%3ECİ%3Ctspan fill='%23d32f2f' font-style='italic'%3E%26%3C/tspan%3EEM%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f0f0f' stroke='%23d32f2f' stroke-width='4'/%3E%3Ctext x='50' y='54' font-family='Georgia, serif' font-size='26' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%23ffffff'%3ECİ%3Ctspan fill='%23d32f2f' font-style='italic'%3E%26%3C/tspan%3EEM%3C/text%3E%3C/svg%3E">
+
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content="İzmir'in öncü yangın kapısı ve çelik kapı üreticisi CI & EM. EI 120 sertifikalı yangın kapıları, lüks çelik kapılar ve akustik ahşap kapı sistemleri imalatı.">
+    <meta name="keywords" content="İzmir yangın kapısı, yangın kapısı imalatı, çelik kapı İzmir, akustik ahşap kapı, sertifikalı yangın kapısı, EI 120 yangın kapısı, panik barlı yangın kapısı, CI & EM Yangın Kapıları, İzmir kapı üreticisi, lüks çelik kapı">
+    <meta name="author" content="CI & EM Yangın Kapıları">
+    <meta property="og:title" content="CI & EM Yangın Kapıları | İzmir Sertifikalı Yangın ve Çelik Kapı İmalatı">
+    <meta property="og:description" content="İzmir merkezli üretim tesisimizde projelerinize özel EI 120 sertifikalı yangın kapıları, lüks çelik kapılar ve akustik ahşap kapılar üretiyoruz.">
+    <meta property="og:type" content="website">
+
+    <!-- Gelişmiş SEO Etiketleri (Canonical & Robots) -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://ciemyanginkapilari.com.tr/">
+
+    <!-- Google için Yapısal Veri (Structured Data / JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Manufacturer",
+      "name": "CI & EM Yangın Kapıları",
+      "image": "https://ciemyanginkapilari.com.tr/images/1.jpg",
+      "@id": "https://ciemyanginkapilari.com.tr/",
+      "url": "https://ciemyanginkapilari.com.tr/",
+      "telephone": "+905539317264",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tınaztepe Mahallesi, Rakım Elkutlu Caddesi No:36/B",
+        "addressLocality": "Konak",
+        "addressRegion": "İzmir",
+        "addressCountry": "TR"
+      },
+      "description": "İzmir merkezli EI 120 sertifikalı yangın kapısı, lüks çelik kapı ve akustik ahşap kapı üreticisi."
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper CSS (Mobil Slider İçin) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
+        .swiper-pagination-bullet-active { background: #d32f2f; width: 24px; border-radius: 12px; transition: all 0.3s; }
+    </style>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Özel Header Stil Dosyası -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Tailwind Customization -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['"Montserrat"', 'sans-serif']
+                    },
+                    colors: {
+                        'brand-red': '#d32f2f',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat overflow-hidden">
+
+    <!-- ==========================================================================
+       Premium Image Split Preloader
+       ========================================================================== -->
+    <div id="preloader" class="fixed inset-0 z-[9999] pointer-events-none">
+        
+        <!-- Merkez Logo -->
+        <div class="preloader-logo absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[10000]">
+            <div class="text-5xl md:text-7xl font-playfair font-bold text-white tracking-widest flex items-center gap-4 drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+                <span>Cİ</span><span class="text-brand-red italic">&</span><span>EM</span>
+            </div>
+        </div>
+
+        <!-- Sol Kapı -->
+        <div class="split-door split-left absolute top-0 left-0 w-1/2 h-full overflow-hidden z-[9999]">
+            <div class="w-[100vw] h-full bg-[url('/images/1.jpg')] bg-cover bg-center"></div>
+            <!-- Karartma ve Kesim Çizgisi -->
+            <div class="absolute inset-0 bg-black/80 border-r border-brand-red/30"></div>
+        </div>
+
+        <!-- Sağ Kapı -->
+        <div class="split-door split-right absolute top-0 right-0 w-1/2 h-full overflow-hidden z-[9999]">
+            <div class="w-[100vw] h-full bg-[url('/images/1.jpg')] bg-cover bg-center -translate-x-[50vw]"></div>
+            <!-- Karartma ve Kesim Çizgisi -->
+            <div class="absolute inset-0 bg-black/80 border-l border-brand-red/30"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       Header Partial (Daha önce oluşturulan lüks header)
+       ========================================================================== -->
+    <%- include('partials/header') %>
+
+    <main>
+        <!-- ==========================================================================
+           Hero Section (Ana Karşılama Alanı)
+           ========================================================================== -->
+        <section 
+            class="relative h-screen flex items-center md:justify-center text-left md:text-center bg-cover bg-center overflow-hidden" 
+            style="background-image: url('/images/1.jpg');">
+            
+            <!-- Masaüstü için tam karartma -->
+            <div class="absolute inset-0 bg-black/70 hidden md:block"></div>
+            
+            <!-- Mobil için alttan yukarı koyulaşan şık degrade -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/80 to-transparent md:hidden z-0"></div>
+            
+            <!-- Mobilde Parıldayan Işık Efekti (Ambient Glow) -->
+            <div class="absolute top-1/4 -right-20 w-80 h-80 bg-brand-red/30 rounded-full blur-[100px] md:hidden pointer-events-none z-0"></div>
+            
+            <div class="relative z-10 w-full px-6 md:px-4 h-full flex flex-col justify-center mt-12 md:mt-0" data-aos="fade-up">
+                <span class="text-brand-red uppercase tracking-[0.3em] text-xs font-semibold mb-4 block md:hidden drop-shadow-lg">CI & EM Koleksiyonu</span>
+                <h1 class="text-5xl md:text-7xl font-playfair font-bold tracking-tight text-white uppercase">
+                    Güvenliğin En <br class="md:hidden" /><span class="text-brand-red">Estetik</span> Formu
+                </h1>
+                <p class="mt-5 md:mt-6 max-w-4xl md:mx-auto text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light drop-shadow-md">
+                    İzmir merkezli üretim tesisimizde, uluslararası kalite standartlarına uygun <strong class="text-white font-medium">EI 120 sertifikalı yangın kapıları</strong>, biyometrik sistemli <strong class="text-white font-medium">lüks çelik kapılar</strong> ve <strong class="text-white font-medium">akustik ahşap kapı</strong> modelleri üretiyoruz. Çeyrek asırlık tecrübemizle projelerinize özel, yüksek güvenlikli ve estetik çözümler sunuyoruz.
+                </p>
+                <div class="mt-8 md:mt-10 flex flex-col md:block">
+                    <a href="/urunler" class="btn-red py-4 md:py-3 px-8 text-lg text-center w-full md:w-auto shadow-2xl">
+                        Koleksiyonu Keşfet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator / Aşağı Kaydır (Lüks Animasyon) -->
+            <div class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70 animate-bounce z-20">
+                <span class="text-[9px] tracking-[0.3em] text-gray-300 uppercase hidden md:block">Aşağı Kaydır</span>
+                <svg class="w-6 h-6 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Koleksiyonlar (Collections) Section - HERO ALTINA TAŞINDI
+           ========================================================================== -->
+        <section class="py-20 sm:py-32 bg-night-black border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Özel <span class="text-brand-red">Koleksiyonlarımız</span></h2>
+                    <p class="text-gray-400 text-lg">Mekanınızın ihtiyacına göre tasarlanmış, güvenlik ve estetiği bir araya getiren lüks kapı serilerimizi keşfedin.</p>
+                </div>
+
+                <!-- Masaüstü Görünümü (Grid - Sadece Büyük Ekranlar) -->
+                <div class="hidden md:grid grid-cols-3 gap-10" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Kart 1: Yangın Kapıları -->
+                    <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col">
+                        <div class="relative h-72 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                            <img src="/images/yanginkapi.jpg" alt="İzmir Sertifikalı Yangın Kapısı Üretimi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Premium Yangın Kapıları</h3>
+                            <p class="text-gray-400 mb-6 flex-1">120 dakikaya kadar dayanımlı, lüks donanımlara sahip tam koruma sağlayan yangın kapıları.</p>
+                            <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kart 2: Çelik Kapılar -->
+                    <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col">
+                        <div class="relative h-72 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                            <img src="/images/celikkapi.jpg" alt="İzmir Lüks Çelik Kapı İmalatı" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Lüks Çelik Kapılar</h3>
+                            <p class="text-gray-400 mb-6 flex-1">Aşılmaz güvenlik duvarını zarif detaylarla mekanınızın girişine taşıyan modern çelik kapılar.</p>
+                            <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kart 3: Ahşap Kapılar -->
+                    <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col">
+                        <div class="relative h-72 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                            <img src="/images/ahsapkapi.jpg" alt="İzmir Akustik Ahşap Kapı Sistemleri" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Doğal Ahşap Kapılar</h3>
+                            <p class="text-gray-400 mb-6 flex-1">İç mekanlar için özel tasarlanmış, yüksek akustik izolasyona sahip prestijli ahşap panel kapılar.</p>
+                            <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Mobil Görünümü (Slider - Sadece Küçük Ekranlar) -->
+                <div class="swiper productSwiper md:hidden pb-12 mt-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <!-- Kart 1 -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col h-full">
+                                <div class="relative h-72 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                                    <img src="/images/yanginkapi.jpg" alt="İzmir Sertifikalı Yangın Kapısı Üretimi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Premium Yangın Kapıları</h3>
+                                    <p class="text-gray-400 mb-6 flex-1">120 dakikaya kadar dayanımlı, lüks donanımlara sahip tam koruma sağlayan yangın kapıları.</p>
+                                    <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                        İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Kart 2 -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col h-full">
+                                <div class="relative h-72 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                                    <img src="/images/celikkapi.jpg" alt="İzmir Lüks Çelik Kapı İmalatı" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Lüks Çelik Kapılar</h3>
+                                    <p class="text-gray-400 mb-6 flex-1">Aşılmaz güvenlik duvarını zarif detaylarla mekanınızın girişine taşıyan modern çelik kapılar.</p>
+                                    <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                        İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Kart 3 -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urunler" class="card-charcoal group overflow-hidden cursor-pointer flex flex-col h-full">
+                                <div class="relative h-72 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10"></div>
+                                    <img src="/images/ahsapkapi.jpg" alt="İzmir Akustik Ahşap Kapı Sistemleri" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-3 group-hover:text-brand-red transition-colors duration-300">Doğal Ahşap Kapılar</h3>
+                                    <p class="text-gray-400 mb-6 flex-1">İç mekanlar için özel tasarlanmış, yüksek akustik izolasyona sahip prestijli ahşap panel kapılar.</p>
+                                    <span class="text-brand-red font-medium flex items-center gap-2 uppercase tracking-wider text-sm group-hover:text-white transition-colors duration-300">
+                                        İncele <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-6"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Prestige Section (Değer Önerileri)
+           ========================================================================== -->
+        <section class="py-20 sm:py-32">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    
+                    <!-- Kart 1: Yangın Dayanımı -->
+                    <div class="p-8 card-charcoal" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full icon-box mx-auto mb-6">
+                            <svg class="h-8 w-8 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-semibold">Yangın Dayanımı</h3>
+                        <p class="mt-4 text-gray-400">Uluslararası standartlarda sertifikalandırılmış, 120 dakikaya kadar ateşe ve dumana karşı kesin koruma kalkanı.</p>
+                    </div>
+
+                    <!-- Kart 2: Akustik İzolasyon -->
+                    <div class="p-8 card-charcoal" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full icon-box mx-auto mb-6">
+                            <svg class="h-8 w-8 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072M17.657 6.343a8 8 0 010 11.314M19.778 4.222a11 11 0 010 15.556M11 8L6 12H2v6h4l5 4V8z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-semibold">Akustik İzolasyon</h3>
+                        <p class="mt-4 text-gray-400">Sadece ateşi değil, gürültüyü de dışarıda bırakın. Üstün ses yalıtımı ile mekanlarınıza huzur katın.</p>
+                    </div>
+
+                    <!-- Kart 3: Özel Tasarım -->
+                    <div class="p-8 card-charcoal" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full icon-box mx-auto mb-6">
+                            <svg class="h-8 w-8 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-playfair font-semibold">Özel Tasarım</h3>
+                        <p class="mt-4 text-gray-400">Lüks mekanlar için projenize özel renk, yüzey ve donanım seçenekleriyle tamamen kişiselleştirilebilir kapılar.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Marka Hikayesi (Brand Story) Section
+           ========================================================================== -->
+        <section class="py-20 sm:py-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Sol: Asimetrik Görsel -->
+                    <div class="relative" data-aos="fade-right">
+                        <!-- Dekoratif Arkaplan Kutusu -->
+                        <div class="absolute -inset-4 bg-brand-red/10 rounded-tl-[5rem] rounded-br-[5rem] transform -rotate-3 z-0"></div>
+                        <div class="relative z-10 rounded-tl-[4rem] rounded-br-[4rem] overflow-hidden border border-white/10 shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none"></div>
+                            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1000&auto=format&fit=crop" alt="Üretim ve Teknoloji Detayı" class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Sağ: Zarif Metin -->
+                    <div data-aos="fade-left">
+                        <span class="text-brand-red uppercase tracking-widest text-sm font-semibold mb-3 block">Mirasımız & Vizyonumuz</span>
+                        <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6 leading-tight">Ustalık ve Teknolojinin <span class="text-brand-red">Kesişimi</span></h2>
+                        <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                            CI & EM Yangın Kapıları olarak, yılların getirdiği derin zanaatkarlık geleneğini, geleceğin mühendislik vizyonuyla harmanlıyoruz. Güvenlik kavramını yalnızca aşılmaz bir duvar olarak değil, mekanın ruhuyla bütünleşen estetik bir unsur olarak yeniden tanımlıyoruz.
+                        </p>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Her detayında lüksü ve mükemmelliği barındıran kapılarımız, ileri teknoloji üretim hatlarımızdan çıkarak prestijli projelere imzasını atıyor.
+                        </p>
+                        <a href="/kurumsal" class="group flex items-center gap-3 text-white font-medium hover:text-brand-red transition-colors duration-300 w-max">
+                            <span class="relative overflow-hidden pb-1">
+                                Kurumsal Profilimiz
+                                <span class="absolute bottom-0 left-0 w-full h-[1px] bg-brand-red transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Tüm Ürünlerimiz (All Products Slider) Section
+           ========================================================================== -->
+        <section class="py-20 sm:py-32 relative border-t border-white/5" style="background-color: var(--charcoal-gray);">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red uppercase tracking-widest text-sm font-semibold mb-3 block">Koleksiyonun Tamamı</span>
+                    <h2 class="text-4xl md:text-5xl font-playfair font-bold text-white mb-6">Ürünlerimiz</h2>
+                    <p class="text-gray-400 text-lg">Güvenlik ve estetiği bir araya getiren tüm ürün serilerimizi detaylıca inceleyin.</p>
+                </div>
+
+                <!-- Masaüstü Görünümü (Grid - Sadece Büyük Ekranlar) -->
+                <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- Ürün 1: Ignis Pro 120 -->
+                    <a href="/urun/ignis-pro-120" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                        <div class="relative h-64 shrink-0 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                            <img src="/images/yanginkapi.jpg" alt="Ignis Pro 120" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Yangın Kapısı</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Ignis Pro 120</h3>
+                            <p class="text-gray-400 text-xs mb-4 flex-1">Sertifikalı panik bar mekanizması ve intümesan fitillerle donatılmış premium yangın kapısı.</p>
+                            <div class="pt-4 border-t border-white/5 mt-auto">
+                                <span class="text-white group-hover:text-brand-red text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                    İncele <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Ürün 2: Aegis Smart Door -->
+                    <a href="/urun/aegis-smart-door" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                        <div class="relative h-64 shrink-0 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                            <img src="/images/celikkapi.jpg" alt="Aegis Smart" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-gray-800 border border-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Çelik Kapı</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Aegis Smart Door</h3>
+                            <p class="text-gray-400 text-xs mb-4 flex-1">Parmak izi okuyucu ve akıllı kilit teknolojisi ile zırhlandırılmış ultra lüks villa kapısı.</p>
+                            <div class="pt-4 border-t border-white/5 mt-auto">
+                                <span class="text-white group-hover:text-brand-red text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                    İncele <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Ürün 3: Silva Acoustic -->
+                    <a href="/urun/silva-acoustic" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                        <div class="relative h-64 shrink-0 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                            <img src="/images/ahsapkapi.jpg" alt="Silva Acoustic" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-gray-800 border border-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Ahşap Kapı</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Silva Acoustic</h3>
+                            <p class="text-gray-400 text-xs mb-4 flex-1">Lüks ofisler ve otel odaları için ses yalıtımlı, manyetik kilitli premium panel kapı.</p>
+                            <div class="pt-4 border-t border-white/5 mt-auto">
+                                <span class="text-white group-hover:text-brand-red text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                    İncele <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Ürün 4: Ignis Lite 60 -->
+                    <a href="/urun/ignis-lite-60" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                        <div class="relative h-64 shrink-0 overflow-hidden">
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                            <img src="/images/yanginkapi.jpg" alt="Ignis Lite 60" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Yangın Kapısı</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col relative z-20">
+                            <h3 class="text-xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Ignis Lite 60</h3>
+                            <p class="text-gray-400 text-xs mb-4 flex-1">İç mekanlara uyumlu, şık ve daha hafif tasarımlı sertifikalı yangın çıkış kapısı.</p>
+                            <div class="pt-4 border-t border-white/5 mt-auto">
+                                <span class="text-white group-hover:text-brand-red text-xs font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                    İncele <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- Mobil Görünümü (Slider - Sadece Küçük Ekranlar) -->
+                <div class="swiper allProductsSwiper md:hidden pb-12 mt-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- Ürün 1: Ignis Pro 120 -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urun/ignis-pro-120" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                                <div class="relative h-72 shrink-0 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                                    <img src="/images/yanginkapi.jpg" alt="Ignis Pro 120" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                    <div class="absolute top-4 right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Yangın Kapısı</div>
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Ignis Pro 120</h3>
+                                    <p class="text-gray-400 text-sm mb-6 flex-1">Sertifikalı panik bar mekanizması ve intümesan fitillerle donatılmış premium yangın kapısı.</p>
+                                    <div class="pt-6 border-t border-white/5 mt-auto">
+                                        <span class="text-white group-hover:text-brand-red text-sm font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                            Detayları İncele <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Ürün 2: Aegis Smart Door -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urun/aegis-smart-door" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                                <div class="relative h-72 shrink-0 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                                    <img src="/images/celikkapi.jpg" alt="Aegis Smart" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                    <div class="absolute top-4 right-4 bg-gray-800 border border-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Çelik Kapı</div>
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Aegis Smart Door</h3>
+                                    <p class="text-gray-400 text-sm mb-6 flex-1">Parmak izi okuyucu ve akıllı kilit teknolojisi ile zırhlandırılmış ultra lüks villa kapısı.</p>
+                                    <div class="pt-6 border-t border-white/5 mt-auto">
+                                        <span class="text-white group-hover:text-brand-red text-sm font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                            Detayları İncele <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Ürün 3: Silva Acoustic -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urun/silva-acoustic" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                                <div class="relative h-72 shrink-0 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                                    <img src="/images/ahsapkapi.jpg" alt="Silva Acoustic" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                    <div class="absolute top-4 right-4 bg-gray-800 border border-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Ahşap Kapı</div>
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Silva Acoustic</h3>
+                                    <p class="text-gray-400 text-sm mb-6 flex-1">Lüks ofisler ve otel odaları için ses yalıtımlı, manyetik kilitli premium panel kapı.</p>
+                                    <div class="pt-6 border-t border-white/5 mt-auto">
+                                        <span class="text-white group-hover:text-brand-red text-sm font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                            Detayları İncele <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Ürün 4: Ignis Lite 60 -->
+                        <div class="swiper-slide h-auto">
+                            <a href="/urun/ignis-lite-60" class="card-charcoal rounded-2xl overflow-hidden flex flex-col group h-full">
+                                <div class="relative h-72 shrink-0 overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                                    <img src="/images/yanginkapi.jpg" alt="Ignis Lite 60" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                    <div class="absolute top-4 right-4 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg z-20">Yangın Kapısı</div>
+                                </div>
+                                <div class="p-8 flex-1 flex flex-col relative z-20">
+                                    <h3 class="text-2xl font-playfair font-semibold mb-2 text-white group-hover:text-brand-red transition-colors">Ignis Lite 60</h3>
+                                    <p class="text-gray-400 text-sm mb-6 flex-1">İç mekanlara uyumlu, şık ve daha hafif tasarımlı sertifikalı yangın çıkış kapısı.</p>
+                                    <div class="pt-6 border-t border-white/5 mt-auto">
+                                        <span class="text-white group-hover:text-brand-red text-sm font-medium uppercase tracking-wider flex items-center gap-2 transition-colors w-max">
+                                            Detayları İncele <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination all-products-pagination mt-6"></div>
+                    
+                    <!-- Slider Masaüstü Yön Okları -->
+                    <div class="swiper-button-next !text-brand-red hidden md:flex drop-shadow-[0_0_15px_rgba(211,47,47,0.5)] hover:scale-110 transition-transform"></div>
+                    <div class="swiper-button-prev !text-brand-red hidden md:flex drop-shadow-[0_0_15px_rgba(211,47,47,0.5)] hover:scale-110 transition-transform"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Teknoloji & Donanım (Technology & Hardware) Section
+           ========================================================================== -->
+        <section class="py-20 sm:py-32 overflow-hidden relative" style="background-color: var(--night-black);">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red uppercase tracking-widest text-sm font-semibold mb-3 block">İnovasyon</span>
+                    <h2 class="text-4xl md:text-5xl font-playfair font-bold mb-6">Mükemmellik <span class="text-brand-red">Detaylarda</span> Gizlidir</h2>
+                    <p class="text-gray-400 text-lg">En üst düzey güvenlik ve estetik için kapılarımızı dünyanın en seçkin donanımlarıyla donatıyoruz. Teknolojimizi keşfetmek için parlayan noktaların üzerine gelin.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-16">
+
+                    <!-- Yangın Kapısı Kartı -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-playfair font-semibold text-center mb-6">Yangın Kapısı</h3>
+                        <div class="relative">
+                            <img src="/images/yanginkapi1.jpg" alt="Yangın Kapısı Donanımları" class="w-full h-auto max-h-[600px] object-cover rounded-2xl border border-white/5 shadow-2xl">
+                            <!-- Hotspot: Panik Bar -->
+                            <div class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">Panik Bar Sistemi</h4>
+                                    <p class="text-sm text-gray-400">Acil durumlarda tek bir dokunuşla hızlı ve güvenli tahliye sağlayan, sertifikalı panik bar mekanizması.</p>
+                                </div>
+                            </div>
+                            <!-- Hotspot: İntümesan Fitil -->
+                            <div class="absolute top-[20%] right-[10%] z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute top-10 right-0 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">İntümesan Fitiller</h4>
+                                    <p class="text-sm text-gray-400">Isı karşısında genleşerek kapı ve kasa arasındaki boşluğu tamamen kapatan özel yangın ve duman contaları.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Çelik Kapı Kartı -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-playfair font-semibold text-center mb-6">Çelik Kapı</h3>
+                        <div class="relative">
+                            <img src="/images/celikkapi.jpg" alt="Çelik Kapı Donanımları" class="w-full h-auto max-h-[600px] object-cover rounded-2xl border border-white/5 shadow-2xl">
+                            <!-- Hotspot: Biyometrik Kilit -->
+                            <div class="absolute top-[50%] left-[20%] -translate-y-1/2 z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute top-10 left-0 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">Biyometrik Kilitler</h4>
+                                    <p class="text-sm text-gray-400">Parmak izi, şifre ve mobil uygulama destekli, motorlu kilitleme mekanizmasına sahip lüks akıllı güvenlik.</p>
+                                </div>
+                            </div>
+                            <!-- Hotspot: Gizli Menteşe -->
+                            <div class="absolute top-[25%] right-[15%] z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute top-10 right-0 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">3D Gizli Menteşeler</h4>
+                                    <p class="text-sm text-gray-400">Dışarıdan görünmeyen, yüksek taşıma kapasiteli ve 3 eksende ayarlanabilir kusursuz İtalyan menteşe sistemi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ahşap Kapı Kartı -->
+                    <div class="relative" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-playfair font-semibold text-center mb-6">Ahşap Kapı</h3>
+                        <div class="relative">
+                            <img src="/images/ahsapkapi.jpg" alt="Ahşap Kapı Donanımları" class="w-full h-auto max-h-[600px] object-cover rounded-2xl border border-white/5 shadow-2xl">
+                            <!-- Hotspot: Akustik Çekirdek -->
+                            <div class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">Akustik Çekirdek</h4>
+                                    <p class="text-sm text-gray-400">Yüksek yoğunluklu özel dolgu malzemesi sayesinde üstün ses yalıtımı sağlayarak mekanlara huzur katar.</p>
+                                </div>
+                            </div>
+                            <!-- Hotspot: Manyetik Kilit -->
+                            <div class="absolute top-[55%] left-[15%] -translate-y-1/2 z-20 group">
+                                <div class="relative flex items-center justify-center w-8 h-8 cursor-pointer">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-red shadow-[0_0_10px_#d32f2f]"></span>
+                                </div>
+                                <div class="absolute top-10 left-0 w-64 p-5 card-charcoal opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 translate-y-2 group-hover:translate-y-0">
+                                    <h4 class="text-white font-playfair font-semibold text-lg mb-2">Manyetik Kilitler</h4>
+                                    <p class="text-sm text-gray-400">Sessiz ve pürüzsüz kapanma deneyimi sunan, modern tasarımlı İtalyan manyetik kilit sistemleri.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Dynamic Counter (Dinamik Sayaçlar)
+           ========================================================================== -->
+        <section class="py-20 relative border-y border-white/5" style="background-color: var(--charcoal-gray);">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center" id="counter-section">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl md:text-6xl font-playfair font-bold text-brand-red mb-2">
+                            <span class="counter" data-target="1000">0</span>+
+                        </div>
+                        <p class="text-lg text-gray-300 font-medium tracking-wide uppercase">Tamamlanan Proje</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl md:text-6xl font-playfair font-bold text-brand-red mb-2">
+                            <span class="counter" data-target="120">0</span>
+                        </div>
+                        <p class="text-lg text-gray-300 font-medium tracking-wide uppercase">Dakika Dayanım</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl md:text-6xl font-playfair font-bold text-brand-red mb-2">
+                            <span class="counter" data-target="25">0</span>+
+                        </div>
+                        <p class="text-lg text-gray-300 font-medium tracking-wide uppercase">Yıllık Tecrübe</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           CTA (Call to Action) Section
+           ========================================================================== -->
+        <section class="py-24 relative overflow-hidden">
+            <!-- Arka planda devasa yumuşak kırmızı parlama (Ambient Light) -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] z-0 pointer-events-none"></div>
+    
+            <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+                <!-- Yüzen Koyu Renkli Kart -->
+                <div class="card-charcoal relative overflow-hidden rounded-3xl p-10 md:p-16 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-duration="1000">
+                    <!-- Kart içi ince kırmızı vurgu çizgisi -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-red to-transparent"></div>
+    
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                        <div class="text-center md:text-left flex-1">
+                            <span class="text-brand-red uppercase tracking-widest text-sm font-semibold mb-4 block">Birlikte Çalışalım</span>
+                            <h2 class="text-4xl md:text-4xl font-playfair font-bold text-white mb-6 leading-tight">
+                                Projeniz İçin <span class="italic font-light text-gray-300">Özel Çözümler</span> Üretelim.
+                            </h2>
+                            <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto md:mx-0">
+                                Mimari vizyonunuzu ve güvenlik standartlarınızı en üst seviyeye taşıyacak premium kapı sistemleri için uzman ekibimizle iletişime geçin.
+                            </p>
+                            <!-- Avantaj Detayları -->
+                            <div class="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4 sm:gap-8 mb-8 md:mb-0">
+                                <div class="flex items-center gap-2 text-sm text-gray-300">
+                                    <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Ücretsiz Keşif
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300">
+                                    <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Özel Üretim
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-gray-300">
+                                    <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Uzman Montaj
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex flex-col items-center">
+                            <a href="/teklif-al" class="btn-red py-4 px-10 text-lg">
+                                Hemen Teklif Al
+                            </a>
+                            <span class="text-xs text-gray-500 mt-4 block">Formu doldurun, en kısa sürede dönüş yapalım.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+       Footer Partial
+       ========================================================================== -->
+    <%- include('partials/footer') %>
+
+        <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- AOS Başlatma Script'i -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true, // Animasyonların sadece bir kez çalışmasını sağlar
+        });
+
+        // Ürünler Slider (Swiper) Kurulumu (Sadece Mobil)
+        var swiper = new Swiper(".productSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true }
+        });
+
+        // Tüm Ürünler Slider (Swiper) Kurulumu (Sadece Mobil)
+        var allProductsSwiper = new Swiper(".allProductsSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 3500, disableOnInteraction: false },
+            pagination: { el: ".all-products-pagination", clickable: true },
+        });
+
+        // Dynamic Counter Script
+        const counters = document.querySelectorAll('.counter');
+        let hasCounted = false;
+
+        const startCounting = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 saniye
+                const increment = target / (duration / 16); // 60fps
+
+                let currentCount = 0;
+                const updateCounter = () => {
+                    currentCount += increment;
+                    if (currentCount < target) {
+                        counter.innerText = Math.ceil(currentCount);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // Scroll Event Observer for Counter
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting && !hasCounted) {
+                startCounting();
+                hasCounted = true;
+            }
+        }, { threshold: 0.5 });
+
+        const counterSection = document.getElementById('counter-section');
+        if (counterSection) observer.observe(counterSection);
+
+        // Preloader Split Kapı Açılış Scripti
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            
+            // Site yüklendikten kısa süre sonra kapıları iki yana aç
+            setTimeout(() => {
+                preloader.classList.add('door-open');
+                
+                // Animasyon bitiminde scroll'u aç ve preloader'ı tamamen gizle
+                setTimeout(() => {
+                    document.body.classList.remove('overflow-hidden');
+                    preloader.style.display = 'none';
+                }, 1500); // CSS transition süresi ile uyumlu
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>

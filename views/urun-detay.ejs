@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- SVG Kodlu Dinamik Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f0f0f' stroke='%23d32f2f' stroke-width='4'/%3E%3Ctext x='50' y='54' font-family='Georgia, serif' font-size='26' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%23ffffff'%3ECİ%3Ctspan fill='%23d32f2f' font-style='italic'%3E%26%3C/tspan%3EEM%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f0f0f' stroke='%23d32f2f' stroke-width='4'/%3E%3Ctext x='50' y='54' font-family='Georgia, serif' font-size='26' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%23ffffff'%3ECİ%3Ctspan fill='%23d32f2f' font-style='italic'%3E%26%3C/tspan%3EEM%3C/text%3E%3C/svg%3E">
+
+    <!-- Dinamik SEO Meta Etiketleri -->
+    <meta name="description" content="<%= product.description %>">
+    <meta name="keywords" content="<%= product.name %>, yangın kapısı, çelik kapı, İzmir kapı sistemleri, <%= product.badge1 %>, <%= product.badge2 %>, özel kapı imalatı">
+    <meta name="author" content="CI & EM Yangın Kapıları">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= product.description %>">
+    <meta property="og:image" content="<%= product.image %>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['"Montserrat"', 'sans-serif']
+                    },
+                    colors: {
+                        'brand-red': '#d32f2f',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat">
+
+    <%- include('partials/header') %>
+
+    <main>
+        <!-- ==========================================================================
+           Ürün Hero Section
+           ========================================================================== -->
+        <section class="pt-40 pb-20 md:pt-48 md:pb-24 border-b border-white/5 relative overflow-hidden">
+            <!-- Arka plan parlama efekti -->
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/10 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Sol: Ürün Görseli -->
+                    <div class="relative" data-aos="fade-right">
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-red/20 to-transparent rounded-2xl transform rotate-2 z-0"></div>
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 bg-black">
+                            <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-auto max-h-[600px] object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Sağ: Ürün Temel Bilgileri -->
+                    <div data-aos="fade-left">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-brand-red/20 border border-brand-red/50 text-brand-red text-xs font-bold rounded-full uppercase tracking-wider"><%= product.badge1 %></span>
+                            <span class="text-gray-400 text-sm"><%= product.badge2 %></span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl font-playfair font-bold text-white mb-6 leading-tight">
+                            <%= product.name %>
+                        </h1>
+                        
+                        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                            <%= product.description %>
+                        </p>
+
+                        <!-- Öne Çıkan Özellikler Liste -->
+                        <ul class="space-y-4 mb-10">
+                            <% product.features.forEach(function(feature) { %>
+                                <li class="flex items-center gap-3 text-gray-300">
+                                    <svg class="w-5 h-5 text-brand-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <%= feature %>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           Teknik Şartname & Kullanım Alanları Section
+           ========================================================================== -->
+        <section class="py-20 bg-charcoal-gray relative border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    
+                    <!-- Sol Taraf: Teknik Şartlar Tablosu -->
+                    <div class="lg:col-span-7" data-aos="fade-up">
+                        <h2 class="text-3xl font-playfair font-bold text-white mb-8 border-b border-white/10 pb-4">Teknik <span class="text-brand-red">Şartname</span></h2>
+                        
+                        <div class="rounded-xl border border-white/10 overflow-hidden bg-night-black">
+                            <% product.specs.forEach(function(spec, index) { %>
+                                <div class="grid grid-cols-3 <%= index !== product.specs.length - 1 ? 'border-b border-white/10' : '' %>">
+                                    <div class="col-span-1 bg-white/5 p-4 text-sm font-semibold text-gray-300 uppercase tracking-wider"><%= spec.title %></div>
+                                    <div class="col-span-2 p-4 text-sm text-gray-400"><%= spec.desc %></div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Taraf: Kullanım Alanları -->
+                    <div class="lg:col-span-5" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="text-3xl font-playfair font-bold text-white mb-8 border-b border-white/10 pb-4">Kullanım <span class="text-brand-red">Alanları</span></h2>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="card-charcoal p-6 text-center border border-white/5 hover:border-brand-red/50">
+                                <svg class="w-8 h-8 mx-auto text-brand-red mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                <span class="text-white font-medium text-sm">Hastaneler</span>
+                            </div>
+                            <div class="card-charcoal p-6 text-center border border-white/5 hover:border-brand-red/50">
+                                <svg class="w-8 h-8 mx-auto text-brand-red mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                <span class="text-white font-medium text-sm">Lüks Konutlar</span>
+                            </div>
+                            <div class="card-charcoal p-6 text-center border border-white/5 hover:border-brand-red/50">
+                                <svg class="w-8 h-8 mx-auto text-brand-red mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span class="text-white font-medium text-sm">İş Merkezleri</span>
+                            </div>
+                            <div class="card-charcoal p-6 text-center border border-white/5 hover:border-brand-red/50">
+                                <svg class="w-8 h-8 mx-auto text-brand-red mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                                <span class="text-white font-medium text-sm">AVM & Oteller</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           WhatsApp CTA Section
+           ========================================================================== -->
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 z-0"></div>
+            
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center" data-aos="zoom-in">
+                <div class="w-20 h-20 mx-auto rounded-full bg-[#25D366]/10 flex items-center justify-center mb-8 border border-[#25D366]/30 shadow-[0_0_30px_rgba(37,211,102,0.2)]">
+                    <svg class="w-10 h-10 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.323-.297-.124-1.758-.867-2.03-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.099-.297-.124-1.255-.462-2.39-1.305-.88-.739-1.474-1.652-1.647-1.949-.173-.297-.018-.458.13-.582.134-.111.297-.347.446-.52.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.495-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.396-.272.322-1.04 1.014-1.04 2.476 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-playfair font-bold text-white mb-6">Bu Ürün İçin Teklif Alın</h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+                    <span class="text-white font-semibold"><%= product.name %></span> modelimiz projenize özel ölçü, renk ve donanım seçenekleriyle üretilmektedir. Proje yöneticilerimizle WhatsApp üzerinden anında görüşmeye başlayın.
+                </p>
+                
+                <!-- WhatsApp Yönlendirme Butonu -->
+                <a href="https://wa.me/905539317264?text=Merhaba,%20<%= encodeURIComponent(product.name) %>%20modeliniz%20hakkında%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-3 bg-[#25D366] text-black font-bold tracking-wide py-4 px-10 rounded-full text-lg hover:bg-white hover:scale-105 hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all duration-500">
+                    WhatsApp'tan İletişime Geç
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

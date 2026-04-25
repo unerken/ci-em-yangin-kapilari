@@ -1,0 +1,190 @@
+<!-- Minimalist, Lüks Footer -->
+<footer class="border-t border-white/5 pt-16 pb-8" style="background-color: var(--night-black);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-center md:text-left">
+            
+            <!-- Logo & About -->
+            <div class="flex flex-col items-center md:items-start">
+                <a href="/" class="logo mb-4">
+                    <span class="logo-light">Cİ</span><span class="logo-red">&</span><span class="logo-light">EM</span>
+                </a>
+                <p class="text-sm text-gray-400 max-w-xs">
+                    Premium yangın kapıları ve güvenlik çözümlerinde estetik ve mühendisliği buluşturuyoruz.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-playfair font-semibold mb-4 text-white">Bağlantılar</h4>
+                <nav class="flex flex-col gap-2 text-sm text-gray-400">
+                    <a href="/kurumsal" class="hover:text-brand-red transition-colors duration-300">Kurumsal</a>
+                    <a href="/urunler" class="hover:text-brand-red transition-colors duration-300">Ürünlerimiz</a>
+                    <a href="/iletisim" class="hover:text-brand-red transition-colors duration-300">İletişim</a>
+                </nav>
+            </div>
+
+            <!-- Products -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-playfair font-semibold mb-4 text-white">Ürünlerimiz</h4>
+                <nav class="flex flex-col gap-2 text-sm text-gray-400">
+                    <a href="/urun/ignis-pro-120" class="hover:text-brand-red transition-colors duration-300">Ignis Pro 120</a>
+                    <a href="/urun/ignis-lite-60" class="hover:text-brand-red transition-colors duration-300">Ignis Lite 60</a>
+                    <a href="/urun/aegis-smart-door" class="hover:text-brand-red transition-colors duration-300">Aegis Smart Door</a>
+                    <a href="/urun/aegis-classic" class="hover:text-brand-red transition-colors duration-300">Aegis Classic</a>
+                    <a href="/urun/silva-acoustic" class="hover:text-brand-red transition-colors duration-300">Silva Acoustic</a>
+                </nav>
+            </div>
+
+            <!-- Contact -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-lg font-playfair font-semibold mb-4 text-white">İletişim</h4>
+                <p class="text-sm text-gray-400 mb-2"><a href="mailto:info@ciemyanginkapilari.com.tr" class="hover:text-white transition-colors">info@ciemyanginkapilari.com.tr</a></p>
+                <p class="text-sm text-gray-400 mb-2">Çağlayan Hasbil: <a href="tel:+905539317264" class="hover:text-white transition-colors">+90 (553) 931 72 64</a></p>
+                <p class="text-sm text-gray-400 mb-4">Orhan Oğuz: <a href="tel:+905019433548" class="hover:text-white transition-colors">+90 (501) 943 35 48</a></p>
+                <a href="/teklif-al" class="text-brand-red font-medium text-sm hover:text-white transition-colors duration-300 underline underline-offset-4">Bize Ulaşın</a>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/5 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-xs text-gray-500">
+                &copy; <%= new Date().getFullYear() %> CI & EM Yangın Kapıları. Tüm hakları saklıdır.
+            </div>
+            
+            <!-- Nodex Developer Signature Embed Start (Dark Theme Adapted) -->
+            <style>
+                /* AYARLAR: Koyu tema (gece siyahı) için açık renk kodları ayarlandı */
+                .nodex-signature-container {
+                    --nx-main-color: #10b981;       /* Ana Yeşil Renk */
+                    --nx-main-rgb: 16, 185, 129;    /* RGB Kodu */
+                    --nx-text-color: #f3f4f6;       /* AÇIK RENK: Siyah zemin için beyaz/gri */
+                    --nx-label-color: #9ca3af;      /* AÇIK GRİ: "Designed by" yazısı */
+                    --nx-font: 'Courier New', Courier, monospace;
+                }
+            
+                /* Stil Kodları */
+                .nodex-signature {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 14px; 
+                    text-decoration: none !important;
+                    transition: all 0.3s ease;
+                    opacity: 0.8; 
+                    font-family: var(--nx-font);
+                    line-height: 1;
+                    cursor: pointer;
+                }
+            
+                .nodex-signature:hover {
+                    opacity: 1;
+                }
+            
+                .nodex-label {
+                    font-size: 12px; 
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    color: var(--nx-label-color);
+                    font-weight: 700; 
+                }
+            
+                .nodex-logo-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px; 
+                }
+            
+                .nodex-logo-box {
+                    display: flex;
+                    width: 38px;  
+                    height: 38px; 
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px; 
+                    border: 1px solid rgba(var(--nx-main-rgb), 0.4);
+                    background: rgba(var(--nx-main-rgb), 0.05);
+                    color: var(--nx-main-color);
+                    font-size: 20px; 
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+            
+                .nodex-signature:hover .nodex-logo-box {
+                    background: var(--nx-main-color);
+                    color: #fff;
+                    transform: scale(1.1) rotate(5deg);
+                    box-shadow: 0 0 20px rgba(var(--nx-main-rgb), 0.4);
+                    border-color: var(--nx-main-color);
+                }
+            
+                .nodex-text {
+                    font-size: 14px; 
+                    font-weight: bold;
+                    color: var(--nx-text-color);
+                    letter-spacing: -0.02em;
+                }
+            
+                .nodex-highlight {
+                    color: var(--nx-main-color);
+                    margin-left: 1px;
+                }
+            
+                /* Glitch Animasyonu */
+                @keyframes nodex-glitch {
+                    0% { transform: translate(0); }
+                    20% { transform: translate(-1px, 1px); }
+                    40% { transform: translate(-1px, -1px); }
+                    60% { transform: translate(1px, 1px); }
+                    80% { transform: translate(1px, -1px); }
+                    100% { transform: translate(0); }
+                }
+            
+                .nodex-signature:hover .nodex-glitch-char {
+                    display: inline-block;
+                    animation: nodex-glitch 0.3s infinite;
+                }
+            </style>
+            
+            <div class="nodex-signature-container">
+                <a href="https://nodexyazilim.com" target="_blank" rel="noopener noreferrer" class="nodex-signature" title="Nodex Yazılım">
+                    <span class="nodex-label">Designed by</span>
+                    <div class="nodex-logo-wrapper">
+                        <div class="nodex-logo-box">
+                            <span class="nodex-glitch-char">ꋊ</span>
+                        </div>
+                        <span class="nodex-text">
+                            NODEX<span class="nodex-highlight">YAZILIM</span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <!-- Nodex Developer Signature Embed End -->
+        </div>
+    </div>
+</footer>
+
+<!-- Yüzen (Floating) WhatsApp Butonu -->
+<a href="https://wa.me/905539317264?text=Merhaba,%20web%20sitenizi%20inceliyorum,%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[9999] bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all duration-300 flex items-center justify-center group" aria-label="WhatsApp Destek">
+    <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-60 animate-ping group-hover:hidden"></span>
+    <svg class="w-8 h-8 md:w-10 md:h-10 relative z-10" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.323-.297-.124-1.758-.867-2.03-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.099-.297-.124-1.255-.462-2.39-1.305-.88-.739-1.474-1.652-1.647-1.949-.173-.297-.018-.458.13-.582.134-.111.297-.347.446-.52.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.495-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.396-.272.322-1.04 1.014-1.04 2.476 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- Özel İmleç (Custom Cursor) HTML -->
+<div class="custom-cursor"></div>
+<div class="custom-cursor-dot"></div>
+
+<script>
+    // Özel İmleç (Custom Cursor) JS Mantığı
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+
+    // İmleci farenin konumuna göre hareket ettir
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+        cursorDot.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+    });
+
+    // Linkler, butonlar ve özel kartlar üzerinde imleç animasyonu (Hover Efekti)
+    const hoverElements = document.querySelectorAll('a, button, .card-charcoal');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+</script>
