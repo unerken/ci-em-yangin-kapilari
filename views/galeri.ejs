@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth overflow-x-hidden">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +41,7 @@
 
     <%- include('partials/header') %>
 
-    <main class="overflow-x-hidden w-full min-h-screen flex flex-col">
+    <main class="w-full min-h-screen flex flex-col">
         <!-- Hero Section -->
         <section class="relative pt-40 pb-20 md:pt-52 md:pb-32 flex items-center justify-center text-center bg-cover bg-center border-b border-white/5 shrink-0" style="background-image: url('/images/1.jpg');">
             <div class="absolute inset-0 bg-black/80"></div>
@@ -62,13 +62,13 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 
                 <% if (images && images.length > 0) { %>
-                    <!-- 4'lü Dinamik Izgara Sistemi -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Mobil 2'li, Masaüstü 4'lü Dinamik Izgara Sistemi -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                         <% images.forEach(function(img, index) { %>
-                            <div class="gallery-item card-charcoal rounded-2xl overflow-hidden border border-white/5 group relative h-64 md:h-72 cursor-pointer" data-aos="fade-up" data-aos-delay="<%= (index % 4) * 100 %>">
+                            <div class="gallery-item card-charcoal rounded-xl md:rounded-2xl overflow-hidden border border-white/5 group relative h-40 sm:h-56 md:h-72 cursor-pointer" data-aos="fade-up" data-aos-delay="<%= (index % 4) * 100 %>">
                                 <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none">
-                                    <svg class="w-12 h-12 text-white drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                    <svg class="w-8 h-8 md:w-12 md:h-12 text-white drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                                 </div>
                                 <img src="/galeri/<%= img %>" alt="CI & EM Galeri Görseli" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                             </div>
