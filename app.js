@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs'); // Klasörleri okumak için eklendi
 require('dotenv').config(); // Çevresel değişkenler (.env) için
 
 const app = express();
@@ -33,9 +34,33 @@ app.get('/kurumsal', (req, res) => {
   res.render('kurumsal', { title: 'CI & EM Yangın Kapıları - Kurumsal' });
 });
 
+// Ekibimiz Rotası
+app.get('/ekibimiz', (req, res) => {
+  res.render('ekibimiz', { title: 'CI & EM Yangın Kapıları - Uzman Kadromuz' });
+});
+
 // İletişim ve Teklif Al Rotaları
 app.get('/iletisim', (req, res) => {
   res.render('teklif-al', { title: 'CI & EM Yangın Kapıları - İletişim' });
+});
+
+// Galeri Rotası (Otomatik Klasör Okuma Sistemi)
+app.get('/galeri', (req, res) => {
+  let images = [];
+  const galeriPath = path.join(__dirname, 'public', 'galeri');
+  
+  try {
+    // Eğer klasör varsa içindeki dosyaları oku
+    if (fs.existsSync(galeriPath)) {
+      const files = fs.readdirSync(galeriPath);
+      // Sadece resim formatındaki dosyaları (jpg, jpeg, png, webp) filtrele
+      images = files.filter(file => /\.(jpg|jpeg|png|webp|gif)$/i.test(file));
+    }
+  } catch (err) {
+    console.error('Galeri klasörü okunamadı:', err);
+  }
+
+  res.render('galeri', { title: 'CI & EM Yangın Kapıları - Fotoğraf Galerisi', images });
 });
 
 app.get('/teklif-al', (req, res) => {

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f0f0f' stroke='%23d32f2f' stroke-width='4'/%3E%3Ctext x='50' y='54' font-family='Georgia, serif' font-size='26' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%23ffffff'%3ECİ%3Ctspan fill='%23d32f2f' font-style='italic'%3E%26%3C/tspan%3EEM%3C/text%3E%3C/svg%3E">
+
+    <meta name="description" content="CI & EM Yangın Kapıları üretim tesisi, montaj sahaları ve tamamlanan projelerimizden kareler.">
+    <meta property="og:title" content="Fotoğraf Galerisi | CI & EM Yangın Kapıları">
+    <meta property="og:url" content="https://ciemyanginkapilari.com.tr/galeri">
+    <link rel="canonical" href="https://ciemyanginkapilari.com.tr/galeri">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['"Montserrat"', 'sans-serif']
+                    },
+                    colors: {
+                        'brand-red': '#d32f2f',
+                        'night-black': '#0f0f0f',
+                        'charcoal-gray': '#1a1a1a'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat overflow-x-hidden">
+
+    <%- include('partials/header') %>
+
+    <main class="overflow-x-hidden w-full min-h-screen flex flex-col">
+        <!-- Hero Section -->
+        <section class="relative pt-40 pb-20 md:pt-52 md:pb-32 flex items-center justify-center text-center bg-cover bg-center border-b border-white/5 shrink-0" style="background-image: url('/images/1.jpg');">
+            <div class="absolute inset-0 bg-black/80"></div>
+            
+            <div class="relative z-10 px-4" data-aos="fade-up">
+                <span class="text-brand-red uppercase tracking-widest text-sm font-semibold mb-4 block">Referanslarımız & Üretim</span>
+                <h1 class="text-4xl md:text-6xl font-playfair font-bold tracking-tight text-white uppercase mb-6">
+                    Fotoğraf <span class="text-brand-red">Galerisi</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-400">
+                    Fabrikamızdan üretim süreçleri, montaj sahalarından detaylar ve prestijli projelerimizden özenle seçilmiş kareler.
+                </p>
+            </div>
+        </section>
+
+        <!-- Galeri Grid Section -->
+        <section class="py-20 md:py-32 relative flex-1" style="background-color: var(--night-black);">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                
+                <% if (images && images.length > 0) { %>
+                    <!-- 4'lü Dinamik Izgara Sistemi -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <% images.forEach(function(img, index) { %>
+                            <div class="gallery-item card-charcoal rounded-2xl overflow-hidden border border-white/5 group relative h-64 md:h-72 cursor-pointer" data-aos="fade-up" data-aos-delay="<%= (index % 4) * 100 %>">
+                                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>
+                                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none">
+                                    <svg class="w-12 h-12 text-white drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                                </div>
+                                <img src="/galeri/<%= img %>" alt="CI & EM Galeri Görseli" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else { %>
+                    <!-- Klasör Boşsa Çıkacak Uyarı -->
+                    <div class="text-center py-20 border border-white/5 rounded-3xl bg-white/[0.02]" data-aos="fade-in">
+                        <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <p class="text-gray-400 text-lg font-playfair mb-2">Galeriniz şu an boş görünüyor.</p>
+                        <p class="text-gray-500 text-sm max-w-md mx-auto">Fotoğraflarınızı projenizdeki <strong class="text-gray-300">public/galeri</strong> klasörünün içine yüklediğinizde, burada otomatik olarak listelenecektir.</p>
+                    </div>
+                <% } %>
+
+            </div>
+        </section>
+
+        <!-- Lightbox Modal (Tam Ekran Görsel Gösterici) -->
+        <div id="lightbox" class="fixed inset-0 z-[10000] hidden items-center justify-center bg-black/95 backdrop-blur-md opacity-0 transition-opacity duration-300">
+            <button id="lightbox-close" class="absolute top-6 right-6 md:top-8 md:right-8 text-gray-400 hover:text-brand-red transition-colors z-50 focus:outline-none">
+                <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Yön Okları (Sağ / Sol) -->
+            <button id="lightbox-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-red transition-colors z-50 focus:outline-none bg-black/20 hover:bg-black/60 p-2 md:p-3 rounded-full backdrop-blur-sm border border-white/10 shadow-lg">
+                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="lightbox-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-red transition-colors z-50 focus:outline-none bg-black/20 hover:bg-black/60 p-2 md:p-3 rounded-full backdrop-blur-sm border border-white/10 shadow-lg">
+                <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <img id="lightbox-img" src="" alt="Büyük Görsel" class="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300 relative z-40">
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Lightbox Sistemi
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            let currentImageIndex = 0;
+            const imagesList = [];
+
+            const updateImage = (index) => {
+                lightboxImg.src = imagesList[index];
+            };
+
+            // Görsele tıklanınca Lightbox'ı Aç
+            galleryItems.forEach((item, index) => {
+                imagesList.push(item.querySelector('img').src);
+                
+                item.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateImage(currentImageIndex);
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                    
+                    // CSS Animasyonlarının çalışması için kısa bir gecikme veriyoruz
+                    setTimeout(() => {
+                        lightbox.classList.remove('opacity-0');
+                        lightboxImg.classList.remove('scale-95');
+                        lightboxImg.classList.add('scale-100');
+                    }, 10);
+                });
+            });
+
+            // Lightbox'ı Kapatma Fonksiyonu
+            const closeLightbox = () => {
+                lightbox.classList.add('opacity-0');
+                lightboxImg.classList.remove('scale-100');
+                lightboxImg.classList.add('scale-95');
+                
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                    lightbox.classList.remove('flex');
+                    lightboxImg.src = ''; 
+                }, 300); // 300ms animasyon bitiş süresini bekler
+            };
+
+            // Sonraki ve Önceki Görsel Fonksiyonları
+            const prevImage = (e) => {
+                if(e) e.stopPropagation();
+                currentImageIndex = (currentImageIndex === 0) ? imagesList.length - 1 : currentImageIndex - 1;
+                updateImage(currentImageIndex);
+            };
+
+            const nextImage = (e) => {
+                if(e) e.stopPropagation();
+                currentImageIndex = (currentImageIndex === imagesList.length - 1) ? 0 : currentImageIndex + 1;
+                updateImage(currentImageIndex);
+            };
+
+            // Çarpı Butonu, Arkaplan veya ESC tuşu ile kapatma tetikleyicileri
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', prevImage);
+            lightboxNext.addEventListener('click', nextImage);
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') prevImage();
+                    if (e.key === 'ArrowRight') nextImage();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
