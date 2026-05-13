@@ -69,99 +69,79 @@ app.get('/teklif-al', (req, res) => {
 
 // Geçici Veritabanı (İleride MongoDB'ye taşınacak)
 const productsDb = {
-  'ignis-pro-120': {
-    name: 'Ignis Pro 120',
-    badge1: 'Premium Seri',
-    badge2: 'EI 120 Sertifikalı',
+  'yangin-kapilari': {
+    name: 'Yangın Kapıları',
+    badge1: 'Sertifikalı Seri',
+    badge2: 'EI 60 / 120',
     image: '/images/yanginkapi.jpg',
-    description: 'Sertifikalı panik bar mekanizması, intümesan yangın fitilleri ve ultra dayanıklı 2mm galvaniz sac kasasıyla donatılmış, ağır hizmet tipi yangın kapısı. İnsan hayatının söz konusu olduğu yüksek riskli alanlar için en üst düzey koruma sağlar.',
+    description: 'İnsan hayatını ve mekanları korumak için tasarlanmış, uluslararası testlerden geçmiş EI 60, EI 90 ve EI 120 dayanım sertifikalı profesyonel yangın kapıları.',
     features: [
-      '120 Dakikaya Kadar Kesin Yangın ve Duman Dayanımı',
-      'Avrupa Standartlarında (EN 1634-1) Test Edilmiştir',
-      'Akıllı Bina ve Alarm Sistemleri ile Tam Entegrasyon'
+      'EI 60, EI 90 ve EI 120 dakika dayanım seçenekleri',
+      'Sertifikalı panik bar ve kapı kapatıcı mekanizmalar',
+      'İntümesan (ısıyla genleşen) yangın ve duman contası'
     ],
     specs: [
-      { title: 'Sertifikasyon', desc: 'EN 1634-1, EI 120 / CE Belgeli' },
-      { title: 'Kasa Yapısı', desc: '2.0 mm kalınlığında elektrostatik boyalı galvaniz çelik, ayarlanabilir fitilli geçme kasa.' },
-      { title: 'Kanat Dolgusu', desc: '150 yoğunluklu taşyünü ve özel alçıpan seramik levha destekli yüksek ısı yalıtımı.' },
-      { title: 'Donanımlar', desc: 'İntümesan sıcak duman fitili, ağır hizmet tipi panik bar, hidrolik yaylı kapı kapatıcı, 3D menteşe.' },
-      { title: 'Renk Seçeneği', desc: 'RAL Kataloğundaki tüm renklerde projeye özel fırın boya uygulaması.' }
-    ]
-  },
-  'aegis-smart-door': {
-    name: 'Aegis Smart Door',
-    badge1: 'Lüks Seri',
-    badge2: 'Biyometrik Kilit',
-    image: '/images/celikkapi.jpg',
-    description: 'Parmak izi okuyucu ve akıllı kilit teknolojisi ile zırhlandırılmış ultra lüks villa ve konut kapısı. Estetik ve güvenliği teknolojiyle buluşturur.',
-    features: [
-      'Parmak İzi ve Şifreli Lüks Kilit Sistemi',
-      'Dışarıdan Görünmeyen 3D Gizli Menteşeler',
-      'Aşılmaz Çelik Zırh ve Üstün Ses Yalıtımı'
+      { title: 'Sertifikasyon', desc: 'EN 1634-1, EI 60 / EI 120 / CE Belgeli' },
+      { title: 'Kasa Yapısı', desc: '1.5 - 2.0 mm galvaniz çelik, ayarlanabilir geçme kasa.' },
+      { title: 'Kanat Dolgusu', desc: 'Yüksek yoğunluklu taşyünü ve özel alçıpan seramik destek.' },
+      { title: 'Donanımlar', desc: 'Panik bar, hidrolik yay, intümesan fitil, yaylı menteşe.' }
     ],
-    specs: [
-      { title: 'Kilit Sistemi', desc: 'Motorlu, parmak izi ve şifre destekli biyometrik akıllı kilit.' },
-      { title: 'Kasa Yapısı', desc: '2.5 mm güçlendirilmiş çelik, gizli montajlı lüks kasa.' },
-      { title: 'Kanat Dolgusu', desc: 'Yüksek yoğunluklu taşyünü ve çelik güvenlik bariyerleri.' },
-      { title: 'Donanımlar', desc: 'İtalyan 3D gizli menteşe, geniş açılı dijital dürbün.' },
-      { title: 'Dış Yüzey', desc: 'Suya ve güneşe dayanıklı kompozit doğal ahşap giydirme.' }
+    options: [
+      '60 Dakika Yangın Dayanımı',
+      '120 Dakika Yangın Dayanımı',
+      'Panik Barlı Kullanım',
+      'Dışarıdan Müdahale Kolu',
+      'Yangına Dayanıklı Gözetleme Camı'
     ]
   },
-  'silva-acoustic': {
-    name: 'Silva Acoustic',
+  'ahsap-kapi': {
+    name: 'Ahşap Kapı',
     badge1: 'Prestij Seri',
-    badge2: '38 dB Akustik',
+    badge2: 'Akustik Yalıtım',
     image: '/images/ahsapkapi.jpg',
-    description: 'Otel odaları ve lüks ofisler için özel geliştirilmiş, ses yalıtımlı ve manyetik kilitli ahşap iç mekan kapısı.',
+    description: 'İç mekanlar için lüks, yüksek ses yalıtımlı ve uzun ömürlü doğal ahşap kapılar. Ev, ofis ve ticari projeler için mükemmel estetik çözüm.',
     features: [
-      '38 dB\'e Kadar Yüksek Akustik İzolasyon (Ses Yalıtımı)',
-      'Sessiz ve Pürüzsüz Kapanma Sağlayan Manyetik Kilitler',
-      'Lüks Doğal Ahşap Kaplama Yüzeyler'
+      'Yüksek yoğunluklu dolgu ile 38 dB maksimum ses yalıtımı',
+      'Sessiz ve pürüzsüz kapanma sağlayan İtalyan manyetik kilit',
+      'Ceviz, meşe ve lake gibi geniş yüzey kaplama seçenekleri'
     ],
     specs: [
-      { title: 'Sertifikasyon', desc: 'TSE Onaylı 38 dB Akustik Test Raporu' },
-      { title: 'Kasa Yapısı', desc: 'Masif ahşap üzeri doğal kaplama, contalı özel yalıtım kasası.' },
-      { title: 'Kanat Dolgusu', desc: 'Akustik yalıtımlı özel delikli sunta (tubular board).' },
-      { title: 'Donanımlar', desc: 'İtalyan manyetik kilit, gizli menteşe, otomatik alt giyotin.' },
-      { title: 'Yüzey', desc: 'Ceviz, meşe, lake veya projeye özel lüks doğal kaplamalar.' }
+      { title: 'Kasa Yapısı', desc: 'Masif ahşap üzeri doğal kaplama, ses yalıtım contalı.' },
+      { title: 'Kanat Dolgusu', desc: 'Akustik yalıtımlı özel delikli sunta (Tubular board).' },
+      { title: 'Donanımlar', desc: 'İtalyan manyetik kilit, gizli menteşe, özel tasarım kollar.' },
+      { title: 'Yüzey', desc: 'Ceviz, meşe, lake boya veya projeye özel doğal kaplamalar.' }
+    ],
+    options: [
+      'Doğal Ahşap Kaplama (Ceviz/Meşe)',
+      'Lake Boya (İstenilen RAL Rengi)',
+      'Manyetik Sessiz Kilit',
+      'Gizli Menteşe Sistemi',
+      'Otomatik Alt Giyotin (Ses Kesici)'
     ]
   },
-  'ignis-lite-60': {
-    name: 'Ignis Lite 60',
-    badge1: 'Mimari Seri',
-    badge2: 'EI 60 Sertifikalı',
-    image: '/images/yanginkapi.jpg',
-    description: 'İç mekan mimarisine uyum sağlayan, şık ve daha hafif tasarımlı sertifikalı yangın çıkış kapısı. İnce yapısına rağmen üstün koruma sunar.',
+  'kart-girisli-ahsap-kapi': {
+    name: 'Kart Girişli Ahşap Kapı',
+    badge1: 'Otel & Proje',
+    badge2: 'Elektronik Kilit',
+    image: '/images/ahsapkapi.jpg',
+    description: 'Oteller, hastaneler, rezidanslar ve ticari projeler için özel üretilen; elektronik kart okuyucu kilitlere tam entegre, yüksek güvenlikli ahşap kapı sistemleri.',
     features: [
-      '60 Dakika Kesin Yangın ve Duman Dayanımı',
-      'İç Mekan İçin Özel Geliştirilmiş İnce (Slim) Kasa Tasarımı',
-      'Yangın Anında Otomatik Çalışan Akıllı Kapanma Sistemi'
+      'Tüm popüler otel kartlı kilit sistemleri ile tam uyumlu altyapı',
+      'Otel odası konforu için 38 dB üzeri akustik ses yalıtımı',
+      'Enerji tasarruf cihazları (Energy Saver) ile entegre çalışabilme'
     ],
     specs: [
-      { title: 'Sertifikasyon', desc: 'EN 1634-1, EI 60 / CE Belgeli' },
-      { title: 'Kasa Yapısı', desc: '1.5 mm kalınlığında galvaniz çelik, mimari ince kasa yapısı.' },
-      { title: 'Kanat Dolgusu', desc: 'Yangına dayanıklı özel seramik yünü dolgu malzemesi.' },
-      { title: 'Donanımlar', desc: 'Gizli kapı kapatıcı, yangın contası, paslanmaz çelik kol.' },
-      { title: 'Renk Seçeneği', desc: 'Mimari konseptinize uygun elektrostatik fırın boya.' }
-    ]
-  },
-  'aegis-classic': {
-    name: 'Aegis Classic',
-    badge1: 'Klasik Seri',
-    badge2: '14 Noktadan Kilit',
-    image: '/images/celikkapi.jpg',
-    description: 'Zamana meydan okuyan klasik motiflerle bezenmiş, yüksek güvenlikli daire kapısı. Geleneksel çizgileri modern güvenlikle harmanlar.',
-    features: [
-      '14 Farklı Noktadan Kilitleme Yapan Zırhlı Sistem',
-      'El İşçiliği ile Hazırlanmış Ahşap Yüzeyler',
-      'Üstün Isı ve Ses Yalıtımı İçin Çift Conta Sistemi'
+      { title: 'Kilit Altyapısı', desc: 'Kartlı kilit (RFID/Mifare) sistemleri için özel güçlendirilmiş seren.' },
+      { title: 'Opsiyonel', desc: 'İsteğe bağlı 30 veya 60 dakika yangın dayanımı.' },
+      { title: 'Kanat Dolgusu', desc: 'Yüksek yoğunluklu akustik yalıtımlı panel.' },
+      { title: 'Donanımlar', desc: 'Gizli kapı kapatıcı (hidrolik yay), alt giyotin fitil.' }
     ],
-    specs: [
-      { title: 'Kilit Sistemi', desc: 'Merkezi sistem, 14 noktadan kitleyen çelik mil mekanizması.' },
-      { title: 'Kasa Yapısı', desc: '2.0 mm bükümlü çelik, dıştan ahşap pervaz kaplamalı.' },
-      { title: 'Kanat Dolgusu', desc: 'Çelik kafes destekli poliüretan köpük yalıtımı.' },
-      { title: 'Donanımlar', desc: 'Pirinç veya eskitme döküm kollar, geniş açılı dijital dürbün.' },
-      { title: 'Dış Yüzey', desc: 'CNC işlemeli klasik motifli masif ahşap kaplama.' }
+    options: [
+      'Kart Okuyuculu Otel Kilidi',
+      'Gizli Hidrolik Kapı Kapatıcı',
+      '30 Dakika Yangın Dayanımı',
+      'Enerji Saver (Röle) Entegrasyonu',
+      'Oda Numaratörü / DND Paneli'
     ]
   }
 };
