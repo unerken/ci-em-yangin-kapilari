@@ -196,7 +196,7 @@ app.post('/api/chat', async (req, res) => {
     res.json({ reply: response.text() });
   } catch (error) {
     console.error('Gemini API Hatası:', error);
-    res.status(500).json({ reply: '⚠️ Hata Detayı: ' + error.message });
+    res.status(500).json({ reply: 'Şu an sistemimde kısa süreli bir bağlantı yoğunluğu yaşıyorum. 🛠️ Lütfen size yardımcı olabilmemiz için sağ alttaki WhatsApp butonundan ekibimize yazın.' });
   }
 });
 
