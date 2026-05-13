@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs'); // Klasörleri okumak için eklendi
 require('dotenv').config(); // Çevresel değişkenler (.env) için
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -159,6 +160,44 @@ app.get('/urun/:slug', (req, res) => {
     title: `${product.name} - CI & EM Yangın Kapıları`,
     product: product 
   });
+});
+
+// --- YAPAY ZEKA (GEMINI) CHAT API ---
+app.post('/api/chat', async (req, res) => {
+  try {
+    const userMessage = req.body.message;
+    if (!userMessage) return res.status(400).json({ error: 'Mesaj boş olamaz.' });
+
+    if (!process.env.GEMINI_API_KEY) {
+       return res.json({ reply: 'Sistem şu an bakımdadır, lütfen detaylı bilgi için WhatsApp üzerinden iletişime geçin.' });
+    }
+
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    // Gemini'ye vereceğimiz "Karakter ve Bilgi" talimatı (Prompt Engineering)
+    const prompt = `Sen CI & EM Yangın Kapıları firmasının resmi ve kibar akıllı asistanısın.
+    Firma Bilgileri:
+    - Ürünler: EI 60 ve EI 120 Sertifikalı Yangın Kapıları, 38 dB ses yalıtımlı lüks Ahşap Kapılar, Elektronik kilitli (RFID) Otel Kapıları.
+    - Hizmetler: Ücretsiz keşif, özel üretim ve tüm Türkiye'ye bağımsız montaj (bizden veya dışarıdan alınan kapılar dahil).
+    - Adres: Tınaztepe Mahallesi, Rakım Elkutlu Caddesi No:36/B, Konak/İzmir
+    - İletişim: info@ciemyanginkapilari.com.tr
+    - Satış Müdürü: Çağlayan Hasbil (0553 931 72 64)
+    - Montaj Sorumlusu: Orhan Oğuz (0501 943 35 48)
+    Kurallar:
+    1. Kesin fiyat verme! Fiyat sorulduğunda projeye özel çalışıldığını belirtip kullanıcıyı WhatsApp'tan Çağlayan Hasbil'e yönlendir.
+    2. Alakasız konularda (örneğin yemek tarifi vb.) sadece kapı sistemleri hakkında destek olabileceğini söyle.
+    3. Mümkün olduğunca kısa, net, anlaşılır ve aralarda emojiler kullanarak cevap ver.
+    
+    Müşterinin Sorusu: ${userMessage}`;
+
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    res.json({ reply: response.text() });
+  } catch (error) {
+    console.error('Gemini API Hatası:', error);
+    res.status(500).json({ reply: 'Üzgünüm, şu an bağlantı sorunu yaşıyorum. Acil destek için lütfen sağ alttaki WhatsApp butonunu kullanın.' });
+  }
 });
 
 // --- SUNUCUYU BAŞLATMA ---

@@ -230,6 +230,154 @@
     });
 </script>
 
+<!-- ==========================================================================
+   CI & EM Akıllı Asistan (AI Chatbot) - Sol Alt
+   ========================================================================== -->
+<div class="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[9999] flex flex-col items-start">
+    
+    <!-- Chat Penceresi -->
+    <div id="ai-chat-window" class="mb-4 bg-[#1a1a1a] border border-white/10 rounded-2xl shadow-2xl w-[300px] md:w-[350px] h-[450px] flex flex-col transform transition-all duration-300 origin-bottom-left scale-0 opacity-0 pointer-events-none">
+        
+        <!-- Header -->
+        <div class="bg-brand-red/20 border-b border-brand-red/30 p-4 rounded-t-2xl flex justify-between items-center shrink-0">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center shadow-[0_0_15px_rgba(211,47,47,0.5)]">
+                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                    <h4 class="text-white font-playfair font-semibold text-sm">CI & EM Asistan</h4>
+                    <p class="text-[10px] text-gray-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Çevrimiçi</p>
+                </div>
+            </div>
+            <button id="ai-close" class="text-gray-400 hover:text-white transition-colors focus:outline-none">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <!-- Mesajlaşma Alanı -->
+        <div id="ai-messages" class="flex-1 p-4 overflow-y-auto flex flex-col gap-3 scroll-smooth text-sm">
+            <!-- Karşılama Mesajı -->
+            <div class="bg-white/5 border border-white/10 text-gray-300 p-3 rounded-2xl rounded-tl-sm self-start max-w-[85%] leading-relaxed">
+                Merhaba! 👋 Ben CI & EM Akıllı Asistanı. Yangın kapıları, ahşap kapılar, fiyatlandırma veya üretim hakkında size nasıl yardımcı olabilirim?
+            </div>
+        </div>
+
+        <!-- Girdi (Input) Alanı -->
+        <div class="p-3 border-t border-white/10 flex gap-2 shrink-0 bg-[#1a1a1a]">
+            <input type="text" id="ai-input" class="flex-1 bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder-gray-600" placeholder="Bir soru sorun..." autocomplete="off" />
+            <button id="ai-send" class="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center text-white hover:bg-white hover:text-brand-red shadow-lg transition-colors shrink-0 focus:outline-none">
+                <svg class="w-4 h-4 transform rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+            </button>
+        </div>
+        
+        <!-- Nodex AI İmza -->
+        <div class="pb-3 bg-[#1a1a1a] rounded-b-2xl text-center shrink-0 flex justify-center">
+            <div class="nodex-signature-container scale-[0.80] origin-bottom mt-1">
+                <a href="https://nodexyazilim.com" target="_blank" rel="noopener noreferrer" class="nodex-signature" title="Nodex Yazılım">
+                    <span class="nodex-label">Yapay Zeka Destekleyicisi</span>
+                    <div class="nodex-logo-wrapper">
+                        <div class="nodex-logo-box">
+                            <span class="nodex-glitch-char">ꋊ</span>
+                        </div>
+                        <span class="nodex-text">
+                            NODEX<span class="nodex-highlight">YAZILIM</span>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Açma Butonu (Sol Alt) -->
+    <button id="ai-button" class="w-14 h-14 md:w-16 md:h-16 bg-[#0f0f0f] border border-brand-red/50 rounded-full flex items-center justify-center text-brand-red shadow-[0_0_20px_rgba(211,47,47,0.3)] hover:scale-110 hover:bg-brand-red hover:text-white hover:border-brand-red hover:shadow-[0_0_30px_rgba(211,47,47,0.6)] transition-all duration-300 relative z-10 focus:outline-none group">
+        <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+    </button>
+</div>
+
+<!-- Akıllı Asistan Mantığı (JS) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const aiButton = document.getElementById('ai-button');
+        const aiWindow = document.getElementById('ai-chat-window');
+        const aiClose = document.getElementById('ai-close');
+        const aiInput = document.getElementById('ai-input');
+        const aiSend = document.getElementById('ai-send');
+        const aiMessages = document.getElementById('ai-messages');
+
+        // Menü Aç/Kapat
+        const toggleAiMenu = () => {
+            aiWindow.classList.toggle('scale-0');
+            aiWindow.classList.toggle('opacity-0');
+            aiWindow.classList.toggle('pointer-events-none');
+            if (!aiWindow.classList.contains('opacity-0')) aiInput.focus();
+        };
+
+        if(aiButton) aiButton.addEventListener('click', toggleAiMenu);
+        if(aiClose) aiClose.addEventListener('click', toggleAiMenu);
+
+        // Ana sayfada 3 saniye sonra otomatik açılma (Sadece 1 kere)
+        if (window.location.pathname === '/' && !sessionStorage.getItem('aiAutoOpened')) {
+            setTimeout(() => {
+                if (aiWindow.classList.contains('opacity-0')) {
+                    toggleAiMenu();
+                    sessionStorage.setItem('aiAutoOpened', 'true');
+                }
+            }, 3000);
+        }
+
+        // Mesaj Ekleme Fonksiyonu
+        const addMessage = (text, isUser = false) => {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = isUser 
+                ? 'bg-brand-red text-white p-3 rounded-2xl rounded-tr-sm self-end max-w-[85%] leading-relaxed'
+                : 'bg-white/5 border border-white/10 text-gray-300 p-3 rounded-2xl rounded-tl-sm self-start max-w-[85%] leading-relaxed';
+            msgDiv.innerHTML = text;
+            aiMessages.appendChild(msgDiv);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+        };
+
+        // Gönderme İşlemi
+        const handleSend = async () => {
+            const text = aiInput.value.trim();
+            if(!text) return;
+            
+            addMessage(text, true); // Kullanıcı mesajını ekle
+            aiInput.value = '';
+            
+            // Simüle edilmiş AI düşünme süresi
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'bg-white/5 border border-white/10 text-gray-400 p-3 rounded-2xl rounded-tl-sm self-start max-w-[85%] flex gap-1 items-center';
+            typingDiv.innerHTML = '<span class="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>';
+            aiMessages.appendChild(typingDiv);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+
+            try {
+                // Arka plandaki API'mize (Gemini'ye) soruyu gönderiyoruz
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await response.json();
+                
+                aiMessages.removeChild(typingDiv);
+                
+                // Gemini'den gelen kalın metinleri (**metin**) HTML formatına çevir
+                const formattedReply = data.reply.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>');
+                addMessage(formattedReply, false);
+            } catch (error) {
+                aiMessages.removeChild(typingDiv);
+                addMessage('⚠️ Bağlantı kurulamadı. Lütfen sorularınız için sağ alttaki WhatsApp butonumuzu kullanın.', false);
+            }
+        };
+
+        if(aiSend) aiSend.addEventListener('click', handleSend);
+        if(aiInput) aiInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') handleSend();
+        });
+    });
+</script>
+
 <!-- Özel İmleç (Custom Cursor) HTML -->
 <div class="custom-cursor"></div>
 <div class="custom-cursor-dot"></div>
