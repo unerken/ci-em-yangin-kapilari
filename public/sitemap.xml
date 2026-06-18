@@ -2,45 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Ana Sayfalar -->
   <url>
-    <loc>https://www.seninsiten.com/</loc>
+    <loc>https://ciemyanginkapilari.com.tr/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/urunler</loc>
+    <loc>https://ciemyanginkapilari.com.tr/urunler</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/kurumsal</loc>
+    <loc>https://ciemyanginkapilari.com.tr/kurumsal</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/ekibimiz</loc>
+    <loc>https://ciemyanginkapilari.com.tr/ekibimiz</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/galeri</loc>
+    <loc>https://ciemyanginkapilari.com.tr/galeri</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/iletisim</loc>
+    <loc>https://ciemyanginkapilari.com.tr/iletisim</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/teklif-al</loc>
+    <loc>https://ciemyanginkapilari.com.tr/teklif-al</loc>
     <priority>0.9</priority>
   </url>
 
   <!-- Ürün Detay Sayfaları (app.js'deki productsDb'ye göre) -->
   <url>
-    <loc>https://www.seninsiten.com/urun/yangin-kapilari</loc>
+    <loc>https://ciemyanginkapilari.com.tr/urun/yangin-kapilari</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/urun/ahsap-kapi</loc>
+    <loc>https://ciemyanginkapilari.com.tr/urun/ahsap-kapi</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.seninsiten.com/urun/kart-girisli-ahsap-kapi</loc>
+    <loc>https://ciemyanginkapilari.com.tr/urun/kart-girisli-ahsap-kapi</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
