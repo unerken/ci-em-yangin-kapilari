@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Sitemap lokasyonu
 Sitemap: https://ciemyanginkapilari.com.tr/sitemap.xml
